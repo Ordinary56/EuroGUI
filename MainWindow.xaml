@@ -4,10 +4,56 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySQL_Assignment"
+        xmlns:viewmodel="clr-namespace:MySQL_Assignment.MVVM.ViewModel"
         mc:Ignorable="d"
         xmlns:view="clr-namespace:MySQL_Assignment.MVVM.View"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <view:MainView/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition SharedSizeGroup="A"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Label Content="Verseny Dátuma: "/>
+            <TextBlock Margin="0 2 0 10" Text="{Binding SongDate, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="8. feladat"
+            Command="{Binding  GetDateCommand}"/>
+        </StackPanel>
+        <Label Grid.Column="1" VerticalAlignment="Center" 
+               Content="{Binding Results, UpdateSourceTrigger=PropertyChanged}"
+               HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <Button Content="4. feladat"
+                    Margin="0 0 0 10"
+                    Command="{Binding TaskFourCommand}"/>
+            <Button Content="5. feladat"
+                    Margin="0 0 0 10"
+                    Command="{Binding TaskFiveCommand}"/>
+            <Button Content="6. feladat"
+                    Margin="0 0 0 10"/>
+        </StackPanel>
+        
+        <WrapPanel Grid.Column="1" VerticalAlignment="Bottom">
+            <RadioButton Content="2-6. feladat" Height="30" IsChecked="True" Margin="15 0 15 0"
+                         Command="{Binding NavigateToDGCommand}"/>
+            <RadioButton Content="7. feladat"
+                         Command="{Binding NavigateToTaskSevenCommand}"/>
+        </WrapPanel>
+        <ContentControl Content="{Binding CurrentVM}" Grid.Row="1" Grid.Column="1">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodel:DataGridViewModel}">
+                    <view:DGView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodel:ListBoxViewModel}">
+                    <view:ListBoxView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+
+
     </Grid>
 </Window>

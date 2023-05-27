@@ -8,16 +8,18 @@ namespace MySQL_Assignment.MVVM.Model
 {
     public class Song
     {
-        public Song(int id, int year, string country, string artist, string title, int score, int placement)
+        public Song(int id, int year, string country, string artist, string title, int placement, int score, Race? oRace = null)
         {
             Id = id;
             Year = year;
             Country = country;
             Artist = artist;
             Title = title;
-            Score = score;
             Placement = placement;
+            Score = score;
+            ORace = oRace;
         }
+
 
         public int Id { get;  }
         public int Year { get; }
@@ -26,6 +28,8 @@ namespace MySQL_Assignment.MVVM.Model
         public string Title { get; }
         public int Score { get; }
         public int Placement { get; }
+
+        public Race? ORace { get; }
         
     }
 }

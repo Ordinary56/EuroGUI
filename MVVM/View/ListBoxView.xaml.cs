@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MySQL_Assignment.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for SecondView.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class ListBoxView : UserControl
     {
-        public MainView()
+        public ListBoxView()
         {
             InitializeComponent();
         }
