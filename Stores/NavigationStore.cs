@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace MySQL_Assignment.Services
 {
-
+    /// <summary>
+    /// Navigálást ellátó osztály, a datagrid és a Listbox View között váltogat.
+    /// </summary>
     public class NavigationStore
     {
         private ViewModelBase? _currentViewModel;

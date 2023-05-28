@@ -1,11 +1,12 @@
-﻿
+﻿SQL megoldások
+
 4.1
-SELECT COUNT(*) FROM dal  WHERE dal.orszag='Magyarország'
-4.2
-SELECT * FROM dal WHERE dal.orszag='Magyarország' ORDER BY dal.helyezes LIMIT 1;
+SELECT COUNT(*) FROM dal  WHERE dal.orszag='Magyarország' ORDER BY dal.helyezes;
+
 
 5.
 SELECT AVG(dal.pontszam) FROM dal WHERE orszag='Németország';
 
-6. SELECT cim,eloado FROM `dal` WHERE cim LIKE '%Luck%' OR eloado LIKE '%Luck%'
-7. SELECT cim FROM 'dal' WHERE cim LIKE %{string}%
+6. SELECT cim,eloado FROM `dal` WHERE UPPER(cim) LIKE UPPER('%Luck%') OR UPPER(eloado) LIKE UPPER('%Luck%')
+
+7. SELECT cim FROM 'dal' WHERE cim LIKE %{string}% <-- string a felhasználó által beírt szöveg lenne

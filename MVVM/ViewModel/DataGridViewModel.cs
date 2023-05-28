@@ -42,7 +42,8 @@ namespace MySQL_Assignment.MVVM.ViewModel
         {
             if(e.PropertyName == nameof(Index))
             {
-                _songStore.GetSongDate(_repo.GetSongAndRace().ToList()[Index]);
+                //_repo.GetSongAndRace().ToList()[Index]
+                _songStore.GetSongDate(_repo.GetSongAndRace().ElementAt(Index));
             }
         }
     }

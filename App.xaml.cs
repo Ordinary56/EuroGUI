@@ -19,7 +19,7 @@ namespace MySQL_Assignment
     /// </summary>
     public partial class App : Application
     {
-        private readonly NavigationStore navigation;
+        readonly NavigationStore navigation;
         readonly SongStore songStore;
         public App()
         {

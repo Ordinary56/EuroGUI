@@ -50,7 +50,6 @@ namespace MySQL_Assignment.MVVM.ViewModel
         public ICommand TaskSixCommand { get; }
         public ICommand GetDateCommand { get; }
 
-
         private NavigationStore _navigationStore;
         public ViewModelBase CurrentVM => _navigationStore.CurrentViewModel;
         public MainViewModel(NavigationStore navigation, SongStore store)
@@ -61,10 +60,11 @@ namespace MySQL_Assignment.MVVM.ViewModel
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
             TaskFourCommand = new RelayCommand(TaskFour);
             TaskFiveCommand = new RelayCommand(TaskFive);
+            TaskSixCommand = new RelayCommand(TaskSix);
             NavigateToTaskSevenCommand = new RelayCommand( o => { _navigationStore.CurrentViewModel = new ListBoxViewModel(); });
             NavigateToDGCommand = new RelayCommand(o => { _navigationStore.CurrentViewModel = new DataGridViewModel(_songStore); });
             GetDateCommand = new RelayCommand(o => { _songStore.SongSelected += GetSongDate; });
-            //Ha azt akarjuk, hogy abban a pillanatban, mikor kiválasztjuk a datagrid egy elemét
+            //Ha azt akarjuk, hogy abban a pillanatban, mikor kiválasztjuk a datagrid egy elemét,
             //jelenjen meg annak a versenynek a dátuma, az alábbi kódrészlet megteszi.
             //_songStore.SongSelected += GetSongDate;
             _repo = new SongRepository();
@@ -83,8 +83,7 @@ namespace MySQL_Assignment.MVVM.ViewModel
         void TaskFour(object parameter)
         {
             List<Song> query = _repo.GetResults("SELECT * FROM dal  WHERE dal.orszag='Magyarország'").ToList();
-            Results = $"Ennyi magyarországi versenyző van: {query.Count()}\n A legjobb elért helyezés: {query.Min(x => x.Placement)}";
-
+            Results = $"Ennyi magyarországi versenyző van: {query.Count()}\n A legjobb elért helyezés: {query.Min(x => x.Placement)}"; //Nem kell sorba rakni, elég a minimumot kiszedni
         }
 
         void TaskFive(object parameter)
@@ -92,7 +91,11 @@ namespace MySQL_Assignment.MVVM.ViewModel
             double query = _repo.GetResults("SELECT * FROM dal  WHERE dal.orszag='Németország'").ToList().Average(x => x.Score);
             Results = $"Németország pontszámának átlaga: {query:F2}";
         }
-
-
+        void TaskSix(object parameter) 
+        {
+            List<Song> query = _repo.GetResults("SELECT * FROM `dal` WHERE UPPER(cim) LIKE UPPER('%Luck%') OR UPPER(eloado) LIKE UPPER('%Luck%')").ToList();
+            Results = query.Select(x => x.ToString()).Aggregate((a,b) => a + ", " + b);
+           
+        }
     }
 }

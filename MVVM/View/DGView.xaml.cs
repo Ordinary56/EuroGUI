@@ -20,6 +20,7 @@ namespace MySQL_Assignment.MVVM.View
     /// </summary>
     public partial class DGView : UserControl
     {
+        //LÁSD: DataGridViewModel.cs
         public DGView()
         {
             InitializeComponent();

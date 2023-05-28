@@ -20,6 +20,7 @@ namespace MySQL_Assignment
     /// </summary>
     public partial class MainWindow : Window
     {
+        //LÁSD: MainViewModel.cs
         public MainWindow()
         {
             InitializeComponent();

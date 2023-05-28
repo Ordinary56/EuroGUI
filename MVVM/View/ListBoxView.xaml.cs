@@ -20,6 +20,7 @@ namespace MySQL_Assignment.MVVM.View
     /// </summary>
     public partial class ListBoxView : UserControl
     {
+        //LÁSD: ListBoxViewModel.cs
         public ListBoxView()
         {
             InitializeComponent();

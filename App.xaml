@@ -5,6 +5,6 @@
              xmlns:viewmodels="clr-namespace:MySQL_Assignment.MVVM.ViewModel"
              xmlns:view="clr-namespace:MySQL_Assignment.MVVM.View">
     <Application.Resources>
-        
+        <ResourceDictionary Source="Themes/Templates.xaml"/>
     </Application.Resources>
 </Application>

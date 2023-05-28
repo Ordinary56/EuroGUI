@@ -10,7 +10,7 @@ namespace MySQL_Assignment.Core
 {
     /// <summary>
     /// RelayCommand osztály. Segítségével parancsokat (commandokat)
-    /// tudunk gombokhoz, vezérlő egységekhez parancsokat rendelni
+    /// tudunk gombokhoz, vezérlő egységekhez rendelni.
     /// </summary>
     public class RelayCommand : ICommand
     {

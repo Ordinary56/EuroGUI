@@ -12,7 +12,7 @@ namespace MySQL_Assignment.Repositories
     public class SongRepository : RepositoryBase
     {
         //LINQ-s megoldás,
-        //olvassuk be az adatokat
+        //adatok beolvasása (NINCS SQL INJECTION ELLENI VÉDELEM!!!)
         public IEnumerable<Song> GetResults(string commandstring)
         {
             if (string.IsNullOrEmpty(commandstring)) yield break;

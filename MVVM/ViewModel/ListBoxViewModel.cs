@@ -48,7 +48,7 @@ namespace MySQL_Assignment.MVVM.ViewModel
         {
             Song song = (Song)obj;
             if (string.IsNullOrEmpty(Search)) return true;
-            return song.Artist.Contains(Search);
+            return song.Artist.ToLower().Contains(Search.ToLower());
         }
     }
 }

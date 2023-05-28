@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace MySQL_Assignment.Core
 {
     /// <summary>
-    /// A ViewModelBase osztály ősosztálya, örökli az INotifyPropertyChanged interfészt
+    /// A ViewModelBase osztály szülőosztálya, örökli az INotifyPropertyChanged interfészt
     /// </summary>
     public class ObservableObject : INotifyPropertyChanged
     {

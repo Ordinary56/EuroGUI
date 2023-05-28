@@ -31,5 +31,9 @@ namespace MySQL_Assignment.MVVM.Model
 
         public Race? ORace { get; }
         
+        public override string ToString()
+        {
+            return $"{Artist} - {Title}";
+        }
     }
 }
